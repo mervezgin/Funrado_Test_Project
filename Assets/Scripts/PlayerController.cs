@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = default;
     [SerializeField]float rotationSpeed = default;
 
+    public bool hasKey = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,4 +63,41 @@ public class PlayerController : MonoBehaviour
         bool isRunning = moveDirection != 0 || rotateDirection != 0;
         animator.SetBool("isRunning", isRunning);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("BlueKey") || other.gameObject.CompareTag("RedKey") || other.gameObject.CompareTag("Upgrader"))
+        {
+            hasKey = true;
+            Destroy(other.gameObject);
+            if (other.gameObject.CompareTag("BlueKey"))
+            {
+                Debug.Log("you can open blue door bro");
+                //open the blue door with oscillation
+            }
+            else if (other.gameObject.CompareTag("RedKey"))
+            {
+                Debug.Log("you can open red door bro");
+                //open the red door with oscillation
+            }
+            else if (other.gameObject.CompareTag("Upgrader"))
+            {
+                Debug.Log("you got the upgrader");
+                //player ın leveli artsın
+            }
+        }
+
+
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Collided with the " + collision.gameObject.name);
+            //attack code
+        }
+    }
+
+
 }
