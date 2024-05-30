@@ -11,10 +11,13 @@ GameObject:
   - component: {fileID: 1246213765118690319}
   - component: {fileID: 7867520815718819005}
   - component: {fileID: 3561888714170048183}
+  - component: {fileID: 2654424997207547855}
   - component: {fileID: 4723300888312281284}
+  - component: {fileID: 9018617876456552003}
+  - component: {fileID: 7632257190918268139}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: RedDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701598359493162306}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.4726951, y: 1.0686563, z: 0.037286468}
   m_LocalScale: {x: 168.1846, y: 16.491268, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6499145913341488849}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &7867520815718819005
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -84,6 +87,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2654424997207547855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701598359493162306}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.010369814, y: 0.03438505, z: 0.019999996}
+  m_Center: {x: 0.0031903887, y: -0.0024234543, z: -0.00052298873}
 --- !u!114 &4723300888312281284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +122,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.3
   frequency: 0.3
+  isOscillating: 0
+--- !u!114 &9018617876456552003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701598359493162306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179f315979c4b4b89b1d4ea0b0f058a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRedDoor: 1
+  isBlueDoor: 0
+--- !u!54 &7632257190918268139
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701598359493162306}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5173662485179603530
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +173,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6499145913341488849}
-  - component: {fileID: 5007267789694389855}
   m_Layer: 0
   m_Name: RedDoor
   m_TagString: RedDoor
@@ -132,27 +197,6 @@ Transform:
   - {fileID: 1687567689152443427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &5007267789694389855
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5173662485179603530}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.5520217, y: 2.0046608, z: 0.46212852}
-  m_Center: {x: 0.03111732, y: 1.0111271, z: 0.007268727}
 --- !u!1 &7227635348689515702
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,10 +208,13 @@ GameObject:
   - component: {fileID: 1687567689152443427}
   - component: {fileID: 5755592827250712615}
   - component: {fileID: 6393386282425815915}
+  - component: {fileID: 2063778890602176715}
   - component: {fileID: 432867744045341653}
+  - component: {fileID: 5499658990838357329}
+  - component: {fileID: 4619651055409933627}
   m_Layer: 0
   m_Name: Cube.001
-  m_TagString: Untagged
+  m_TagString: RedDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,6 +284,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2063778890602176715
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227635348689515702}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.010369814, y: 0.03517759, z: 0.02}
+  m_Center: {x: 0.0031903875, y: 0.0018157212, z: -0.00052298885}
 --- !u!114 &432867744045341653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,3 +319,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.3
   frequency: 0.3
+  isOscillating: 0
+--- !u!114 &5499658990838357329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227635348689515702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179f315979c4b4b89b1d4ea0b0f058a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRedDoor: 1
+  isBlueDoor: 0
+--- !u!54 &4619651055409933627
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227635348689515702}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

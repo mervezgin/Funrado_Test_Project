@@ -11,10 +11,13 @@ GameObject:
   - component: {fileID: 7989493485597271477}
   - component: {fileID: 2502946730166893037}
   - component: {fileID: 6543942912995145866}
+  - component: {fileID: 6772501427501517054}
   - component: {fileID: 8874530415792564775}
+  - component: {fileID: 2920519048538469358}
+  - component: {fileID: 2434836842611284001}
   m_Layer: 0
   m_Name: Cube.001
-  m_TagString: Untagged
+  m_TagString: BlueDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +87,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6772501427501517054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740333119068219110}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.010369814, y: 0.03517759, z: 0.02}
+  m_Center: {x: 0.0031903905, y: 0.0018157361, z: -0.0005229898}
 --- !u!114 &8874530415792564775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +122,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.3
   frequency: 0.3
+  isOscillating: 0
+--- !u!114 &2920519048538469358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740333119068219110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179f315979c4b4b89b1d4ea0b0f058a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRedDoor: 0
+  isBlueDoor: 1
+--- !u!54 &2434836842611284001
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740333119068219110}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3129534259564185726
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,10 +175,13 @@ GameObject:
   - component: {fileID: 5633998875556055631}
   - component: {fileID: 6014853196719194612}
   - component: {fileID: 8641629208101879098}
+  - component: {fileID: 6212151702877883471}
   - component: {fileID: 667871603006573703}
+  - component: {fileID: 6339199601396487218}
+  - component: {fileID: 2454685549418381043}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: BlueDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,13 +194,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3129534259564185726}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.4726951, y: 1.0686563, z: 0.037286468}
   m_LocalScale: {x: 168.1846, y: 16.491268, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1239706660930407510}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &6014853196719194612
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -182,6 +251,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6212151702877883471
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129534259564185726}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.010369814, y: 0.03438505, z: 0.019999996}
+  m_Center: {x: 0.0031903868, y: -0.0024234692, z: -0.00052298966}
 --- !u!114 &667871603006573703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +286,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.3
   frequency: 0.3
+  isOscillating: 0
+--- !u!114 &6339199601396487218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129534259564185726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179f315979c4b4b89b1d4ea0b0f058a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRedDoor: 0
+  isBlueDoor: 1
+--- !u!54 &2454685549418381043
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129534259564185726}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8805638101615885838
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +337,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1239706660930407510}
-  - component: {fileID: 2706127665094380192}
   m_Layer: 0
   m_Name: BlueDoor
   m_TagString: BlueDoor
@@ -230,24 +361,3 @@ Transform:
   - {fileID: 7989493485597271477}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &2706127665094380192
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8805638101615885838}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.6033196, y: 2.0152922, z: 0.47426236}
-  m_Center: {x: 0.038082063, y: 1.0161464, z: -0.004309684}
