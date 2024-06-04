@@ -8,8 +8,9 @@ public class DoorOscillation : MonoBehaviour
     public float frequency = 0.3f;
     public bool isOscillating = false;
 
+
     float initialRotationZ;
-    
+
     void Start()
     {
 
