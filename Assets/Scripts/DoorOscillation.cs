@@ -4,31 +4,27 @@ using UnityEngine;
 
 public class DoorOscillation : MonoBehaviour
 {
-    public float amplitude = 0.3f;
-    public float frequency = 0.3f;
+    public float amplitude = 0.3f; // Kapının ne kadar sallanacağını belirler.
+    public float frequency = 0.3f; // Kapının ne kadar hızlı sallanacağını belirler.
     public bool isOscillating = false;
 
-
-    float initialRotationZ;
+    float initialRotationZ; //Kapının başlangıçtaki z eks. rotasyonunu saklar.
 
     void Start()
     {
-
-        initialRotationZ = transform.rotation.eulerAngles.z;
+        initialRotationZ = transform.rotation.eulerAngles.z; //Kapının geri döneceği rotasyonu belirler.
     }
 
     void Update()
     {
         if (isOscillating)
         {
-            Debug.Log("DoorOscillation kodu içindeyim");
-            float rotationZ = initialRotationZ + amplitude * Mathf.Sin(Time.time * frequency * 2 * Mathf.PI);
+            float rotationZ = initialRotationZ + amplitude * Mathf.Sin(Time.time * frequency * 2 * Mathf.PI); // (Time.time * frequency * 2 * Mathf.PI) = zamanın belirli bir frekansta ilerlemesini sağlar. bu değer amplitude ile çarpılınca salınımın genliğini belirler.
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, rotationZ);
         }
         else if (isOscillating == false)
         {
-            Debug.Log("kapı kapandı");
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, initialRotationZ);
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, initialRotationZ); //burda bir şeyi yanlış yapıyorum. çünkü salınımın aslında initial rotationa dönmesi lazım ama dönmüyor düzelt
         }
     }
 }
