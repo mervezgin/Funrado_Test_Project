@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLevelUpgrader : MonoBehaviour
 {
-    Animator animator;
-    public int level = 1;
-    [SerializeField] Text levelText;
+    Animator animator; // Karakterin animasyonlarını kontrol etmek için 
+    public int level = 1; // Karakterin başlangıç leveli = 1.
+    [SerializeField] Text levelText; // Karakterin levelinin yazacağı UI Text objesi.
 
+    float restartGameDelay = 2f;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -17,23 +18,20 @@ public class PlayerLevelUpgrader : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Upgrader"))
+        if (other.gameObject.CompareTag("Upgrader")) //Karakter Upgrader tagi olan nesneyle karşılaşınca
         {
-            Debug.Log("YOU LUCKY");
-            Destroy(other.gameObject);
-            IncreaseLevel();
-            Debug.Log(level);
+            Destroy(other.gameObject); //Upgrader gameObjecti yok edilir.
+            IncreaseLevel(); //Levelin arttırıldığı metot çağırılır.
         }
     }
-
     void IncreaseLevel()
     {
-        level++;
-        UpdateLevelText();
+        level++; // level değişkeni bir kere arttırılır.
+        UpdateLevelText(); // Bu metot çağırılır.
     }
     void UpdateLevelText()
     {
-        if (levelText != null)
+        if (levelText != null) // eğer inspectorda levelText bileşeni boş değilse
         {
             levelText.text = "LVL. " + level;
         }
@@ -41,7 +39,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+        EnemyController enemy = other.gameObject.GetComponent<EnemyController>(); // Karakterin çarpıştığı gameObjectin EnemyController bileşenine sahip olup olmadığı kontrol edilir. PlayerAttack metodu çağrılır.
 
         if (enemy != null)
         {
@@ -50,19 +48,17 @@ public class PlayerLevelUpgrader : MonoBehaviour
     }
     void PlayerAttack(EnemyController enemyController)
     {
-        if (level > enemyController.enemyLevel)
+        if (level > enemyController.enemyLevel) // Karakterin leveli enemynin levelinden yüksek ise 
         {
-            Destroy(enemyController.gameObject);
-            Destroy(enemyController.enemyLevelText.gameObject);
-
-            animator.SetBool("isAttacking", true);
-            //player attack
-            Debug.Log("Player attack now!!");
+            animator.SetBool("isAttacking", true); // Karakterin attack animasyonunu devreye geçir 
+            Destroy(enemyController.gameObject); //enemy yi yok et 
+            Destroy(enemyController.enemyLevelText.gameObject); // enemynin level göstergesini yok et.
+            //enemy ölme animasyonu
         }
-        else
+        else // Karakterin leveli enemynin levelinden düşük ise 
         {
-            RestartGame();
-            Debug.Log("Player is dead!");
+            //playerin ölme animasyonu
+            Invoke("RestartGame", restartGameDelay); //oyun yeni baştan başlar 
         }
     }
     void RestartGame()
