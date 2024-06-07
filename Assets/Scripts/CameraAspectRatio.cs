@@ -12,29 +12,30 @@ public class CameraAspectRatio : MonoBehaviour
 
     void AdjustCamera()
     {
-        Camera camera = Camera.main;
-        float targetAspect = 1080.0f / 1920.0f;
-        float windowAspect = (float)Screen.width / (float)Screen.height;
-        float scaleHeight = windowAspect / targetAspect;
+        Camera camera = Camera.main; //Main Camerayı referans aldım.
+        float targetAspect = 1080.0f / 1920.0f; //Hedef görüntü oranı tanımladım.
+        float windowAspect = (float)Screen.width / (float)Screen.height; //Mevcut(windowAspect) ekranın görüntü oranını hesapladım.
+        float scaleHeight = windowAspect / targetAspect; //Mevcut ekran oranının(windowAspect) targetAspecte göre yüksekliğini hesapladım.
 
-        if (scaleHeight < 1.0f)
+        //Yüksekliği küçültmek için 
+        if (scaleHeight < 1.0f) // Eğer mevcut ekran oranı(windowAspect) hedef orandan(targetAspect) genişse yüksekliği küçültmek gerekir.
         {
-            Rect rect = camera.rect;
-            rect.width = 1.0f;
-            rect.height = scaleHeight;
-            rect.x = 0;
-            rect.y = (1.0f - scaleHeight) / 2.0f;
-            camera.rect = rect;
+            Rect rect = camera.rect; // Kameranın şu anki(width ve height değeriyle) dikdörtgenini (rect) bir variable atadım.
+            rect.width = 1.0f; //Genişliği %100 yapar.
+            rect.height = scaleHeight; // Yüksekliği ölçeklendirir.
+            rect.x = 0; // X ekseninde kaydırma yapmaması için 0'a eşitledim.
+            rect.y = (1.0f - scaleHeight) / 2.0f; //Y ekseninde görüntüyü ortalaması için 1.0f dan scaleHeigt i çıkarıp 2ye böldüm.
+            camera.rect = rect; // Yeni width ve height değerlerini(rect) Main Cameraya uygular.
         }
-        else
+        else //Genişliği küçültmek için         
         {
-            float scaleWidth = 1.0f / scaleHeight; 
-            Rect rect = camera.rect;
-            rect.width = scaleWidth;
-            rect.height = 1.0f;
-            rect.x = (1.0f - scaleWidth) / 2.0f;
-            rect.y = 0;
-            camera.rect = rect;
+            float scaleWidth = 1.0f / scaleHeight; //Genişliği ölçeklendirdim.
+            Rect rect = camera.rect;// Kameranın şu anki(width ve height değeriyle) dikdörtgenini (rect) bir variable atadım. 
+            rect.width = scaleWidth;// Genişliği ölçeklendirir.
+            rect.height = 1.0f; //Yüksekliği %100 yapar.
+            rect.x = (1.0f - scaleWidth) / 2.0f; //X ekseninde görüntüyü ortalar.
+            rect.y = 0; //Y ekseninde kaydırma yapmaması için 0'a eşitledim.
+            camera.rect = rect; // Yeni width ve height değerlerini(rect) Main Cameraya uygular.
         }
     }
 }

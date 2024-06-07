@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
-    public int level = 1;
-
+    public int enemyLevel;
+    public Text enemyLevelText;
     // Start is called before the first frame update
     void Start()
     {
-
+        enemyLevel = Random.Range(1, 3);
+        UpdateLevelText();
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateLevelText()
     {
-
+        if (enemyLevelText != null)
+        {
+            enemyLevelText.text = "LVL. " + enemyLevel;
+        }
     }
-
-
 }

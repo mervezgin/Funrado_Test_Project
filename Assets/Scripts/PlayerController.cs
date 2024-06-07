@@ -7,12 +7,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody playerRb;
     Animator animator;
     Joystick joystick;
-    
 
     [SerializeField] float moveSpeed = default;
-    [SerializeField]float rotationSpeed = default;
-
-    
+    [SerializeField] float rotationSpeed = default;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +24,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-/*#if UNITY_EDITOR
-        KeyboardControl();
-#else*/
+        /*#if UNITY_EDITOR
+                KeyboardControl();
+        #else*/
         JoystickControl();
-/*#endif*/
+        /*#endif*/
     }
 
     public void KeyboardControl()
@@ -41,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 playerMove = transform.forward * moveDirection * moveSpeed * Time.deltaTime;
         playerRb.MovePosition(playerRb.position + playerMove);
-       
+
         float rotation = rotateDirection * rotationSpeed * Time.deltaTime;
         transform.Rotate(0, rotation, 0);
 
@@ -62,14 +59,5 @@ public class PlayerController : MonoBehaviour
 
         bool isRunning = moveDirection != 0 || rotateDirection != 0;
         animator.SetBool("isRunning", isRunning);
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("Collided with the " + collision.gameObject.name);
-            //attack code
-        }
     }
 }

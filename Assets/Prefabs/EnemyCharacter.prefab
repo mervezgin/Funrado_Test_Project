@@ -1289,8 +1289,8 @@ GameObject:
   - component: {fileID: 2292089230605132593}
   - component: {fileID: 864564652920236206}
   - component: {fileID: 2363905467437085530}
-  - component: {fileID: 7745500143429168642}
   - component: {fileID: 6868140338375841618}
+  - component: {fileID: 8805830643923808212}
   m_Layer: 0
   m_Name: EnemyCharacter
   m_TagString: Enemy
@@ -1385,19 +1385,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7745500143429168642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9041057398326010721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e32e7f3baf37e48d48d01c6f35015d55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 1
 --- !u!114 &6868140338375841618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,6 +1400,20 @@ MonoBehaviour:
   characterTransform: {fileID: 6481275097411100918}
   offset: {x: 0, y: 2, z: 0}
   levelText: {fileID: 0}
+--- !u!114 &8805830643923808212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9041057398326010721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32e7f3baf37e48d48d01c6f35015d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLevel: 1
+  enemyLevelText: {fileID: 0}
 --- !u!1 &9066051649017822937
 GameObject:
   m_ObjectHideFlags: 0
