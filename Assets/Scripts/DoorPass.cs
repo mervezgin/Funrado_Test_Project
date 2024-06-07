@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorPass : MonoBehaviour   
+public class DoorPass : MonoBehaviour
 {
-    KeyController keyController;
-    DoorOscillation doorOscillation;
-    BoxCollider doorCollider;
+    KeyController keyController; // KeyController scriptini alır 
+    DoorOscillation doorOscillation; //DoorOscillation scriptini alır 
+    BoxCollider doorCollider; //BoxCollider bileşeni alır
 
     public bool isRedDoor;
     public bool isBlueDoor;
@@ -23,15 +23,13 @@ public class DoorPass : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (isBlueDoor && keyController.hasBlueKey)
+            if (isBlueDoor && keyController.hasBlueKey) // Kapı mavi ve anahtar mavi ise OpenDoor() metodunu çağırır.
             {
-                Debug.Log("Blue key detected, opening blue door.");
                 OpenDoor();
-                
+
             }
-            else if (isRedDoor && keyController.hasRedKey)
+            else if (isRedDoor && keyController.hasRedKey) // Kapı kırmızı ve anahtar kırmızı ise OpenDoor() metodunu çağırır.
             {
-                Debug.Log("Red key detected, opening red door.");
                 OpenDoor();
             }
         }
@@ -42,17 +40,14 @@ public class DoorPass : MonoBehaviour
         if (doorOscillation != null)
         {
             doorOscillation.isOscillating = true;
-            Debug.Log("kapı açıldı, osilasyon zamanı");
         }
-        doorCollider.enabled = false;
-        StartCoroutine(CloseDoorAfterDelay());
+        doorCollider.enabled = false; //kapının boxcollider bileşeni kapatıldığı için karakter kapıdan geçebilir.
+        StartCoroutine(CloseDoorAfterDelay()); //belirli bir süre sonra kapıyı kapatmak için StartCoroutine
     }
 
     IEnumerator CloseDoorAfterDelay()
     {
-        yield return new WaitForSeconds(doorOpenDuration);
-        Debug.Log("KAPI KAPANSIN");
-
+        yield return new WaitForSeconds(doorOpenDuration); // belirtilen süre kadar bekler.
         CloseDoor();
     }
 
@@ -61,9 +56,7 @@ public class DoorPass : MonoBehaviour
         if (doorOscillation != null)
         {
             doorOscillation.isOscillating = false;
-
-            Debug.Log(doorOscillation.isOscillating);
         }
-        doorCollider.enabled = true;
+        doorCollider.enabled = true; //kapının boxcollider bileşeni etkin hale gelir ve karakterin geçmesine engel olur.
     }
 }
