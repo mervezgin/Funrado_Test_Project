@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterTransform: {fileID: 6481275097411100918}
-  offset: {x: 0, y: 2, z: 0}
+  offset: {x: -0.5, y: 2.5, z: 0}
   levelText: {fileID: 0}
 --- !u!114 &8805830643923808212
 MonoBehaviour:

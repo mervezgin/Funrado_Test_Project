@@ -1312,6 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
+  gameOver: 0
   levelText: {fileID: 0}
 --- !u!114 &7085444807946192966
 MonoBehaviour:
@@ -1326,7 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterTransform: {fileID: 2427644375927338307}
-  offset: {x: 0, y: 2, z: 0}
+  offset: {x: -0.5, y: 2.5, z: 0}
   levelText: {fileID: 0}
 --- !u!1 &8038831507796624681
 GameObject:

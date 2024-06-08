@@ -8,9 +8,11 @@ public class PlayerLevelUpgrader : MonoBehaviour
 {
     Animator animator; // Karakterin animasyonlarını kontrol etmek için 
     public int level = 1; // Karakterin başlangıç leveli = 1.
+    public bool gameOver;
     [SerializeField] Text levelText; // Karakterin levelinin yazacağı UI Text objesi.
 
     float restartGameDelay = 2f;
+    float attackDelay = 1f;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -53,13 +55,20 @@ public class PlayerLevelUpgrader : MonoBehaviour
             animator.SetBool("isAttacking", true); // Karakterin attack animasyonunu devreye geçir 
             Destroy(enemyController.gameObject); //enemy yi yok et 
             Destroy(enemyController.enemyLevelText.gameObject); // enemynin level göstergesini yok et.
+            Invoke("StopAtaackAnimation", attackDelay);
             //enemy ölme animasyonu
         }
         else // Karakterin leveli enemynin levelinden düşük ise 
         {
             //playerin ölme animasyonu
+            gameOver = true;
             Invoke("RestartGame", restartGameDelay); //oyun yeni baştan başlar 
         }
+    }
+
+    void StopAtaackAnimation()
+    {
+        animator.SetBool("isAttacking", false);
     }
     void RestartGame()
     {
