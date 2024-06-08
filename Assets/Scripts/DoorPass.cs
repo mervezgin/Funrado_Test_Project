@@ -57,6 +57,7 @@ public class DoorPass : MonoBehaviour
         {
             doorOscillation.isOscillating = false;
         }
-        doorCollider.enabled = true; //kapının boxcollider bileşeni etkin hale gelir ve karakterin geçmesine engel olur.
+        doorCollider.enabled = false;
+        //doorCollider.enabled = true ;//kapının boxcollider bileşeni etkin hale gelir ve karakterin geçmesine engel olur.
     }
 }
