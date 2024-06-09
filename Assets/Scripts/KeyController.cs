@@ -31,7 +31,6 @@ public class KeyController : MonoBehaviour
                 blueKeyImage.gameObject.SetActive(true);
                 hasBlueKey = true;
                 Destroy(other.gameObject); //BlueKey'i yok eder
-                Debug.Log("you can open blue door bro");
             }
         }
         else if (other.gameObject.CompareTag("RedKey")) //RedKey tagi olan anahtarla triggerlandığında
@@ -41,7 +40,6 @@ public class KeyController : MonoBehaviour
                 redKeyImage.gameObject.SetActive(true);
                 hasRedKey = true;
                 Destroy(other.gameObject); //RedKey'i yok eder
-                Debug.Log("you can open red door bro");
             }
         }
     }

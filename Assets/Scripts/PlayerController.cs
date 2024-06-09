@@ -42,9 +42,9 @@ public class PlayerController : MonoBehaviour
         bool isRunning = moveDirection != 0 || rotateDirection != 0; //Karakterin hareket edip etmediğini kontrol eder.
         animator.SetBool("isRunning", isRunning); //Animasyon parametresini günceller.
     }
-
     public void JoystickControl()
     {
+        /*
         float moveDirection = joystick.Vertical; //Joystick dikey eksen girdisi
         float rotateDirection = joystick.Horizontal; //Joystick yatay eksen girdisi
 
@@ -56,5 +56,45 @@ public class PlayerController : MonoBehaviour
 
         bool isRunning = moveDirection != 0 || rotateDirection != 0; //Karakterin hareket edip etmediğini kontrol eder.
         animator.SetBool("isRunning", isRunning); //Animasyon parametresini günceller.
+        */
+        /*
+        float moveDirection = joystick.Vertical; // Joystick'in dikey ekseni (ileri/geri hareket)
+        float rotateDirection = joystick.Horizontal; // Joystick'in yatay ekseni (dönüş)
+
+        // Dönüş
+        transform.Rotate(0, rotateDirection * rotationSpeed * Time.deltaTime, 0);
+
+        // Hareket
+        Vector3 moveDirectionVector = transform.forward * moveDirection * moveSpeed * Time.deltaTime;
+        playerRb.MovePosition(playerRb.position + moveDirectionVector);
+
+        // Karakterin hareket ettiğini kontrol etmek için animasyon parametresini güncelle
+        bool isRunning = moveDirection != 0 || rotateDirection != 0;
+        animator.SetBool("isRunning", isRunning);
+        */
+        float moveDirection = Mathf.Abs(joystick.Vertical); // Dikey eksen girdisini alır ve mutlak değer alır.
+        float rotateDirection = joystick.Horizontal; // Yatay eksen girdisini alır.
+
+        Vector3 forwardDirection = transform.forward; // Karakterin önündeki yönü alır.
+
+        // Eğer ters yöne bakılıyorsa, karakterin yönünü tersine çevirir.
+        if (rotateDirection < 0)
+        {
+            forwardDirection *= -1f;
+        }
+
+        // Karakterin hareket vektörünü hesaplar.
+        Vector3 playerMove = forwardDirection * moveDirection * moveSpeed * Time.deltaTime;
+        // Rigidbody ile karakteri yeni pozisyona hareket ettirir.
+        playerRb.MovePosition(playerRb.position + playerMove);
+
+        // Karakterin dönüş açısını hesaplar.
+        float rotation = rotateDirection * rotationSpeed * Time.deltaTime;
+        // Karakteri yatay eksende döndürür.
+        transform.Rotate(0, rotation, 0);
+
+        // Karakterin hareket halinde olup olmadığını kontrol eder ve buna göre animasyonu günceller.
+        bool isRunning = moveDirection != 0 || rotateDirection != 0;
+        animator.SetBool("isRunning", isRunning);
     }
 }

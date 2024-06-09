@@ -1412,13 +1412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32e7f3baf37e48d48d01c6f35015d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAngle: 60
-  viewDistance: 2.5
+  enemyAnimator: {fileID: 2292089230605132593}
   enemyLevel: 1
   enemyLevelText: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!1 &9066051649017822937
 GameObject:
   m_ObjectHideFlags: 0

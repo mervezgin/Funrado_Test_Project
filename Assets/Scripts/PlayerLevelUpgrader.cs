@@ -11,7 +11,6 @@ public class PlayerLevelUpgrader : MonoBehaviour
     public int level = 1; // Karakterin başlangıç leveli = 1.
     [SerializeField] Text levelText; // Karakterin levelinin yazacağı UI Text objesi.
     [SerializeField] GameObject playerPrefab;
-    [SerializeField] List<GameObject> barrels = new List<GameObject>();
 
     float restartGameDelay = 2f;
     float attackDelay = 1f;
@@ -49,8 +48,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        EnemyController enemy = other.gameObject.GetComponent<EnemyController>(); // Karakterin çarpıştığı gameObjectin EnemyController bileşenine sahip olup olmadığı kontrol edilir. PlayerAttack metodu çağrılır.
-
+        EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
         if (enemy != null)
         {
             PlayerAttack(enemy);
@@ -69,9 +67,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
         else // Karakterin leveli enemynin levelinden düşük ise 
         {
             //playerin ölme animasyonu
-            //Enemy attack animasyonu 
             enemyController.enemyAnimator.SetBool("isEnemyAttacking", true);
-            Invoke("StopEnemyAttack", attackDelay);
             Invoke("RestartGame", restartGameDelay); //oyun yeni baştan başlar 
         }
     }
@@ -79,11 +75,6 @@ public class PlayerLevelUpgrader : MonoBehaviour
     void StopAttackAnimation()
     {
         animator.SetBool("isAttacking", false);
-    }
-
-    void StopEnemyAttack(EnemyController enemyController)
-    {
-        enemyController.enemyAnimator.SetBool("isEnemyAttacking", false);
     }
     void RestartGame()
     {
