@@ -12,6 +12,7 @@ TagManager:
   - BlueKey
   - RedDoor
   - BlueDoor
+  - Barrel
   layers:
   - Default
   - TransparentFX

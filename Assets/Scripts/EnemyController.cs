@@ -5,13 +5,38 @@ using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
+    Animator enemyAnimator;
+    Rigidbody enemyRb;
+    BoxCollider enemyBoxC;
+
+    Vector3 initialColliderCenter;
+    Vector3 initialColliderSize;
+
     public int enemyLevel; //enemy levelini temsil ediyor.
     public Text enemyLevelText; // enemy levelinin yazılı olduğu UI Text objesi.
     // Start is called before the first frame update
     void Start()
     {
+        enemyAnimator = GetComponent<Animator>();
+        enemyRb = GetComponent<Rigidbody>();
+        enemyBoxC = GetComponent<BoxCollider>();
+
         enemyLevel = Random.Range(1, 3); //enemy leveline random bir değer atar.
+
+        initialColliderCenter = enemyBoxC.center;
+        initialColliderSize = enemyBoxC.size;
+
         UpdateLevelText(); //enemy leveli için texti yazdırır.
+        Invoke("EnemyPatrol", 1f);
+    }
+
+    void LateUpdate()
+    {
+        if (enemyBoxC != null)
+        {
+            enemyBoxC.center = initialColliderCenter;
+            enemyBoxC.size = initialColliderSize;
+        }
     }
 
     void UpdateLevelText()
@@ -20,5 +45,10 @@ public class EnemyController : MonoBehaviour
         {
             enemyLevelText.text = "LVL. " + enemyLevel;
         }
+    }
+
+    void EnemyPatrol()
+    {
+        enemyAnimator.SetBool("isPatrol", true);
     }
 }

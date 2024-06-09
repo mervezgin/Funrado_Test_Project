@@ -1326,10 +1326,10 @@ Animator:
   m_GameObject: {fileID: 9041057398326010721}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 555dddb0fd62c1a4a8a87449606cff55, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0d2a25dfb60c5e4479a2490b7db6aba4, type: 2}
+  m_Controller: {fileID: 9100000, guid: ff6af35fc606d4db39d658241f0a3688, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1356,8 +1356,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.5223234, z: 0.6212239}
-  m_Center: {x: 6.610788e-17, y: 0.7880832, z: 0.008201187}
+  m_Size: {x: 1, y: 1.6702263, z: 0.93799704}
+  m_Center: {x: 7.590569e-17, y: 0.8228856, z: 0.022599882}
 --- !u!54 &2363905467437085530
 Rigidbody:
   m_ObjectHideFlags: 0
