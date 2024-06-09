@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class PlayerLevelUpgrader : MonoBehaviour
 {
     Animator animator; // Karakterin animasyonlarını kontrol etmek için 
+    Vector3 respawnPosition;
     public int level = 1; // Karakterin başlangıç leveli = 1.
-    public bool gameOver;
     [SerializeField] Text levelText; // Karakterin levelinin yazacağı UI Text objesi.
+    [SerializeField] GameObject playerPrefab;
+    [SerializeField] List<GameObject> barrels = new List<GameObject>();
 
     float restartGameDelay = 2f;
     float attackDelay = 1f;
@@ -24,6 +26,12 @@ public class PlayerLevelUpgrader : MonoBehaviour
         {
             Destroy(other.gameObject); //Upgrader gameObjecti yok edilir.
             IncreaseLevel(); //Levelin arttırıldığı metot çağırılır.
+        }
+        else if (other.gameObject.CompareTag("Barrel"))
+        {
+            gameObject.SetActive(false);
+            respawnPosition = other.transform.position;
+            Invoke("RespawnPlayer", 2f);
         }
     }
     void IncreaseLevel()
@@ -61,7 +69,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
         else // Karakterin leveli enemynin levelinden düşük ise 
         {
             //playerin ölme animasyonu
-            gameOver = true;
+            //Enemy attack animasyonu 
             Invoke("RestartGame", restartGameDelay); //oyun yeni baştan başlar 
         }
     }
@@ -76,4 +84,14 @@ public class PlayerLevelUpgrader : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
+    void RespawnPlayer()
+    {
+        if (playerPrefab != null)
+        {
+            respawnPosition.z -= 2.0f;
+            transform.position = respawnPosition; // Player objesini başlangıç konumuna taşı
+            gameObject.SetActive(true); // Player objesini yeniden etkinleştir
+
+        }
+    }
 }

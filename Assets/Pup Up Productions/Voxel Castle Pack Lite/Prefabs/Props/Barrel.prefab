@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3244302810374548874}
+  - component: {fileID: 847052991255885994}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Barrel
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 5001471657017048754}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &847052991255885994
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971817902423924633}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1269699, y: 1.1012272, z: 1}
+  m_Center: {x: -0.023411453, y: 0.5700435, z: 0}
 --- !u!1 &5427127001100270084
 GameObject:
   m_ObjectHideFlags: 0

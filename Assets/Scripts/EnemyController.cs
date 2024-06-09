@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class EnemyController : MonoBehaviour
 {
     Animator enemyAnimator;
-    Rigidbody enemyRb;
     BoxCollider enemyBoxC;
 
     Vector3 initialColliderCenter;
@@ -18,7 +17,6 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemyAnimator = GetComponent<Animator>();
-        enemyRb = GetComponent<Rigidbody>();
         enemyBoxC = GetComponent<BoxCollider>();
 
         enemyLevel = Random.Range(1, 3); //enemy leveline random bir değer atar.

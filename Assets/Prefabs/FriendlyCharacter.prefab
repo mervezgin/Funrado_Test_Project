@@ -1312,8 +1312,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  gameOver: 0
   levelText: {fileID: 0}
+  playerPrefab: {fileID: 7705117966581496777}
+  barrels:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &7085444807946192966
 MonoBehaviour:
   m_ObjectHideFlags: 0

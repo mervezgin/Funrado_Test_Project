@@ -1526,6 +1526,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6506811414057090111, guid: 7c996ecdd411c48fb9c35bb39f166d1a, type: 3}
   m_PrefabInstance: {fileID: 321569273}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &343504449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1971817902423924633, guid: 766387603bc1344ad8380a61144b2b8e, type: 3}
+  m_PrefabInstance: {fileID: 1923254634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &366800285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3320,6 +3325,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 493882, guid: 43ac926c2709a4b4e9868e88f7f97a61, type: 3}
   m_PrefabInstance: {fileID: 914174105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &945794532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1971817902423924633, guid: 766387603bc1344ad8380a61144b2b8e, type: 3}
+  m_PrefabInstance: {fileID: 1349737558}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
@@ -5525,7 +5535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3244302810374548874, guid: 766387603bc1344ad8380a61144b2b8e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.10000038
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: 3244302810374548874, guid: 766387603bc1344ad8380a61144b2b8e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5779,7 +5789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 557.6, y: 967.6004}
+  m_AnchoredPosition: {x: 387, y: 762}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2070943175
@@ -6099,6 +6109,14 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 633080478}
+    - target: {fileID: 467076834967864721, guid: e292cbddc28af47478ad47286dd6adb7, type: 3}
+      propertyPath: barrels.Array.data[0]
+      value: 
+      objectReference: {fileID: 945794532}
+    - target: {fileID: 467076834967864721, guid: e292cbddc28af47478ad47286dd6adb7, type: 3}
+      propertyPath: barrels.Array.data[1]
+      value: 
+      objectReference: {fileID: 343504449}
     - target: {fileID: 2427644375927338307, guid: e292cbddc28af47478ad47286dd6adb7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.2299805
@@ -6836,10 +6854,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2292089230605132593, guid: 84cb0604dab7e45bbbe09cfbc708a80b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3e333217c4f034a41afa2eb99e4c9f69, type: 2}
+    - target: {fileID: 797772295060629807, guid: 84cb0604dab7e45bbbe09cfbc708a80b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6481275097411100918, guid: 84cb0604dab7e45bbbe09cfbc708a80b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.07
@@ -6883,11 +6901,11 @@ PrefabInstance:
     - target: {fileID: 6868140338375841618, guid: 84cb0604dab7e45bbbe09cfbc708a80b, type: 3}
       propertyPath: levelText
       value: 
-      objectReference: {fileID: 186706593}
+      objectReference: {fileID: 2070943175}
     - target: {fileID: 8805830643923808212, guid: 84cb0604dab7e45bbbe09cfbc708a80b, type: 3}
       propertyPath: enemyLevelText
       value: 
-      objectReference: {fileID: 186706593}
+      objectReference: {fileID: 2070943175}
     - target: {fileID: 9041057398326010721, guid: 84cb0604dab7e45bbbe09cfbc708a80b, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
