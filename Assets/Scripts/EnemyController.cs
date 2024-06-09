@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
-    Animator enemyAnimator;
+    public Animator enemyAnimator;
     BoxCollider enemyBoxC;
 
     Vector3 initialColliderCenter;
@@ -13,13 +13,14 @@ public class EnemyController : MonoBehaviour
 
     public int enemyLevel; //enemy levelini temsil ediyor.
     public Text enemyLevelText; // enemy levelinin yazılı olduğu UI Text objesi.
+
     // Start is called before the first frame update
     void Start()
     {
         enemyAnimator = GetComponent<Animator>();
         enemyBoxC = GetComponent<BoxCollider>();
 
-        enemyLevel = Random.Range(1, 3); //enemy leveline random bir değer atar.
+        enemyLevel = Random.Range(1, 5); //enemy leveline random bir değer atar.
 
         initialColliderCenter = enemyBoxC.center;
         initialColliderSize = enemyBoxC.size;

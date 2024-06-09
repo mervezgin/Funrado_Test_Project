@@ -63,20 +63,27 @@ public class PlayerLevelUpgrader : MonoBehaviour
             animator.SetBool("isAttacking", true); // Karakterin attack animasyonunu devreye geçir 
             Destroy(enemyController.gameObject); //enemy yi yok et 
             Destroy(enemyController.enemyLevelText.gameObject); // enemynin level göstergesini yok et.
-            Invoke("StopAtaackAnimation", attackDelay);
+            Invoke("StopAttackAnimation", attackDelay);
             //enemy ölme animasyonu
         }
         else // Karakterin leveli enemynin levelinden düşük ise 
         {
             //playerin ölme animasyonu
             //Enemy attack animasyonu 
+            enemyController.enemyAnimator.SetBool("isEnemyAttacking", true);
+            Invoke("StopEnemyAttack", attackDelay);
             Invoke("RestartGame", restartGameDelay); //oyun yeni baştan başlar 
         }
     }
 
-    void StopAtaackAnimation()
+    void StopAttackAnimation()
     {
         animator.SetBool("isAttacking", false);
+    }
+
+    void StopEnemyAttack(EnemyController enemyController)
+    {
+        enemyController.enemyAnimator.SetBool("isEnemyAttacking", false);
     }
     void RestartGame()
     {
@@ -91,7 +98,6 @@ public class PlayerLevelUpgrader : MonoBehaviour
             respawnPosition.z -= 2.0f;
             transform.position = respawnPosition; // Player objesini başlangıç konumuna taşı
             gameObject.SetActive(true); // Player objesini yeniden etkinleştir
-
         }
     }
 }
