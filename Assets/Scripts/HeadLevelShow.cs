@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class HeadLevelShow : MonoBehaviour
 {
-    [SerializeField] Transform characterTransform; //Karakterin world spaceteki pozisyonunu rotasyonunu ve ölçüsünü belirtir.
-    public Vector3 offset; //Karaketerin başının üzerindeki text konumunu ayarlamak için.
-    public Text levelText; // Karakterin başının üzerindeki UI text objesi.
+    [SerializeField] Transform characterTransform;
+    public Vector3 offset;
+    public Text levelText;
 
     void Update()
     {
         if (levelText != null && characterTransform != null)
         {
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(characterTransform.position + offset); //characterTransforma offset eklenir. ve bu world spaceteki konum, screen spaceteki konuma dönüştürülür.
-            levelText.transform.position = screenPosition; //levelText doğru yere konumlandırılır.
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(characterTransform.position + offset);
+            levelText.transform.position = screenPosition;
         }
     }
 
@@ -22,7 +22,7 @@ public class HeadLevelShow : MonoBehaviour
     {
         if (levelText != null)
         {
-            levelText.text = "LVL. " + level; // Karakterin başının üzerindeki konum yazılır.
+            levelText.text = "LVL. " + level;
         }
     }
 
@@ -30,7 +30,7 @@ public class HeadLevelShow : MonoBehaviour
     {
         if (levelText != null)
         {
-            levelText.gameObject.SetActive(false); // Seviye metnini gizle
+            levelText.gameObject.SetActive(false);
         }
     }
 
@@ -38,7 +38,7 @@ public class HeadLevelShow : MonoBehaviour
     {
         if (levelText != null)
         {
-            levelText.gameObject.SetActive(true); // Seviye metnini göster
+            levelText.gameObject.SetActive(true);
         }
     }
 }
