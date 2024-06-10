@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class LevelSceneHandler : MonoBehaviour
 {
-    float levelLoadDelay = 2f; // Leveller arası geçiş süresi
-    bool isTransitioning = false; // Level geçişinin olup olmadığını kontrol eder 
-    bool collisionDisabled = false; // Çarpışma olup olmadığını kontrol eder
+    float levelLoadDelay = 2f;
+    bool isTransitioning = false;
+    bool collisionDisabled = false;
 
     [SerializeField] Text gameLevelText;
 
@@ -16,16 +16,16 @@ public class LevelSceneHandler : MonoBehaviour
     {
         UpdateGameLevelText();
     }
-    void OnCollisionEnter(Collision collision) // bir nesne başka bir nesneye çarptığında çalışan metot.
+    void OnCollisionEnter(Collision collision)
     {
-        if (isTransitioning || collisionDisabled) { return; } // Eğer geçiş devam ediyorsa ve çarpışmalar devre dışıysa OnCollisionEnter metodu sonlanır.
+        if (isTransitioning || collisionDisabled) { return; }
 
-        switch (collision.gameObject.tag) //çarpışan nesnelerine tagine göre izlenecek metotlar
+        switch (collision.gameObject.tag)
         {
-            case "BeginHere": //Tag BeginHere ise konsola Ready to play yazar.
+            case "BeginHere":
                 Debug.Log("READY TO PLAY");
                 break;
-            case "NextLevel": //Tag NextLevel ise konsola Thank you next yazar. StartSuccessSequence() metodunu çalıştırır.
+            case "NextLevel":
                 StartSuccessSequence();
                 Debug.Log("THANK YOU NEXT");
                 break;
@@ -36,19 +36,13 @@ public class LevelSceneHandler : MonoBehaviour
 
     void LoadNextLevel()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; //şu anda yüklü olan aktif sahneyi ve sahnenin yapı indeksi alıp döndürür.
-        int nextSceneIndex = currentSceneIndex + 1; //Sıradaki sahneyi veren değişken
-        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) // Bu, yapı ayarlarında bulunan toplam sahne sayısını döndürür. Eğer nextSceneIndex mevcut sahne sayısına eşitse, bu, geçerli sahnenin son sahne olduğunu gösterir.
-        {
-            nextSceneIndex = 0; //Sahne 0. sahneden başlar.
-        }
-        SceneManager.LoadScene(nextSceneIndex); // sıradaki sahneyi yükler.
-    }
-
-    void ReloadLevel()
-    {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     void StartSuccessSequence()
@@ -57,12 +51,6 @@ public class LevelSceneHandler : MonoBehaviour
         Invoke("LoadNextLevel", levelLoadDelay);
     }
 
-    void StartDyingSequence()
-    {
-        isTransitioning = true;
-        GetComponent<PlayerController>().enabled = false;
-        Invoke("ReloadLevel", levelLoadDelay);
-    }
     void UpdateGameLevelText()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

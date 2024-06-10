@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DoorPass : MonoBehaviour
 {
-    KeyController keyController; // KeyController scriptini alır 
-    DoorOscillation doorOscillation; //DoorOscillation scriptini alır 
-    BoxCollider doorCollider; //BoxCollider bileşeni alır
+    KeyController keyController;
+    DoorOscillation doorOscillation;
+    BoxCollider doorCollider;
 
     public bool isRedDoor;
     public bool isBlueDoor;
@@ -23,12 +23,12 @@ public class DoorPass : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (isBlueDoor && keyController.hasBlueKey) // Kapı mavi ve anahtar mavi ise OpenDoor() metodunu çağırır.
+            if (isBlueDoor && keyController.hasBlueKey)
             {
                 OpenDoor();
 
             }
-            else if (isRedDoor && keyController.hasRedKey) // Kapı kırmızı ve anahtar kırmızı ise OpenDoor() metodunu çağırır.
+            else if (isRedDoor && keyController.hasRedKey)
             {
                 OpenDoor();
             }
@@ -41,13 +41,13 @@ public class DoorPass : MonoBehaviour
         {
             doorOscillation.isOscillating = true;
         }
-        doorCollider.enabled = false; //kapının boxcollider bileşeni kapatıldığı için karakter kapıdan geçebilir.
-        StartCoroutine(CloseDoorAfterDelay()); //belirli bir süre sonra kapıyı kapatmak için StartCoroutine
+        doorCollider.enabled = false;
+        StartCoroutine(CloseDoorAfterDelay());
     }
 
     IEnumerator CloseDoorAfterDelay()
     {
-        yield return new WaitForSeconds(doorOpenDuration); // belirtilen süre kadar bekler.
+        yield return new WaitForSeconds(doorOpenDuration);
         CloseDoor();
     }
 

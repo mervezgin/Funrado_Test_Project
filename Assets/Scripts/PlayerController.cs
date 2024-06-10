@@ -28,11 +28,11 @@ public class PlayerController : MonoBehaviour
 
     public void JoystickControl()
     {
-        float moveDirection = joystick.Vertical; // Dikey eksen girdisini alır ve mutlak değer alır.
-        float rotateDirection = joystick.Horizontal; // Yatay eksen girdisini alır.
+        float moveDirection = joystick.Vertical;
+        float rotateDirection = joystick.Horizontal;
         float angle = Mathf.Atan2(rotateDirection, moveDirection) * Mathf.Rad2Deg;
 
-        Vector3 forwardDirection = transform.forward; // Karakterin önündeki yönü alır.
+        Vector3 forwardDirection = transform.forward;
         Vector3 playerRotation = transform.eulerAngles;
 
         if (angle < 0)

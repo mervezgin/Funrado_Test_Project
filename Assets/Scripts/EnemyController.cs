@@ -11,8 +11,16 @@ public class EnemyController : MonoBehaviour
     Vector3 initialColliderCenter;
     Vector3 initialColliderSize;
 
-    public int enemyLevel; //enemy levelini temsil ediyor.
-    public Text enemyLevelText; // enemy levelinin yazılı olduğu UI Text objesi.
+    public int enemyLevel;
+    public bool enemyGameOver;
+    public Text enemyLevelText;
+
+    [SerializeField] Transform[] patrolPoints;
+    [SerializeField] float moveSpeed = 2f;
+    [SerializeField] float waitTime = 1f;
+    int currentPointIndex = 0;
+    bool waiting = false;
+    bool patrolling = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +28,13 @@ public class EnemyController : MonoBehaviour
         enemyAnimator = GetComponent<Animator>();
         enemyBoxC = GetComponent<BoxCollider>();
 
-        enemyLevel = Random.Range(1, 5); //enemy leveline random bir değer atar.
+        enemyLevel = Random.Range(1, 5);
 
         initialColliderCenter = enemyBoxC.center;
         initialColliderSize = enemyBoxC.size;
 
-        UpdateLevelText(); //enemy leveli için texti yazdırır.
-        Invoke("EnemyCircle", 1f);
+        UpdateLevelText();
+        Invoke("StartPatrol", 3f);
     }
 
     void LateUpdate()
@@ -35,6 +43,10 @@ public class EnemyController : MonoBehaviour
         {
             enemyBoxC.center = initialColliderCenter;
             enemyBoxC.size = initialColliderSize;
+        }
+        if (patrolling && !waiting && !enemyGameOver)
+        {
+            Patrol();
         }
     }
 
@@ -48,12 +60,61 @@ public class EnemyController : MonoBehaviour
 
     void EnemyCircle()
     {
+
         enemyAnimator.SetBool("isCircle", true);
     }
 
-    void EnemyPatrol()
+    void StartPatrol()
     {
-        //enemy belirli bir range içinde yürüyebilir 
-        //level2 da yapsın bunu 
+        enemyAnimator.SetBool("isCircle", true);
+        Invoke("BeginPatrol", 5f);
+    }
+
+    void BeginPatrol()
+    {
+        enemyAnimator.SetBool("isCircle", false);
+        patrolling = true;
+    }
+
+    void Patrol()
+    {
+        if (patrolPoints.Length == 0)
+        {
+            return;
+        }
+
+        enemyAnimator.SetBool("isEnemyPatrolling", true);
+
+        Transform targetPoint = patrolPoints[currentPointIndex];
+        Vector3 direction = targetPoint.position - transform.position;
+
+        if (direction != Vector3.zero)
+        {
+            Vector3 directionToNextPoint = patrolPoints[(currentPointIndex + 1) % patrolPoints.Length].position - patrolPoints[currentPointIndex].position;
+
+            if (Vector3.Dot(transform.forward, directionToNextPoint) > 0)
+            {
+                transform.Rotate(0f, 180, 0f);
+            }
+        }
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, moveSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, targetPoint.position) < 0.1f)
+        {
+            waiting = true;
+            StartCoroutine(WaitAtPoint());
+        }
+
+
+
+    }
+
+    IEnumerator WaitAtPoint()
+    {
+        yield return new WaitForSeconds(waitTime);
+        waiting = false;
+
+        currentPointIndex = (currentPointIndex + 1) % patrolPoints.Length;
     }
 }

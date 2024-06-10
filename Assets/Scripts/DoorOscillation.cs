@@ -8,18 +8,18 @@ public class DoorOscillation : MonoBehaviour
     public float frequency = 0.3f; // Kapının ne kadar hızlı sallanacağını belirler.
     public bool isOscillating = false;
 
-    float initialRotationZ; //Kapının başlangıçtaki z eks. rotasyonunu saklar.
+    float initialRotationZ;
 
     void Start()
     {
-        initialRotationZ = transform.rotation.eulerAngles.z; //Kapının geri döneceği rotasyonu belirler.
+        initialRotationZ = transform.rotation.eulerAngles.z;
     }
 
     void Update()
     {
         if (isOscillating)
         {
-            float rotationZ = initialRotationZ + amplitude * Mathf.Sin(Time.time * frequency * 2 * Mathf.PI); // (Time.time * frequency * 2 * Mathf.PI) = zamanın belirli bir frekansta ilerlemesini sağlar. bu değer amplitude ile çarpılınca salınımın genliğini belirler.
+            float rotationZ = initialRotationZ + amplitude * Mathf.Sin(Time.time * frequency * 2 * Mathf.PI);
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, rotationZ);
         }
         else if (isOscillating == false)

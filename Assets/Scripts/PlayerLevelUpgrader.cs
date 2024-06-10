@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLevelUpgrader : MonoBehaviour
 {
-    Animator playerAnimator; // Karakterin animasyonlarını kontrol etmek için 
+    Animator playerAnimator;
     Vector3 respawnPosition;
     public int level = 1;
     [SerializeField] HeadLevelShow headLevelShow;
@@ -62,19 +62,20 @@ public class PlayerLevelUpgrader : MonoBehaviour
 
     void PlayerAttack(EnemyController enemyController)
     {
-        if (level > enemyController.enemyLevel) // Karakterin leveli enemynin levelinden yüksek ise 
+        if (level > enemyController.enemyLevel)
         {
             playerAnimator.SetBool("isAttacking", true);
+            enemyController.enemyGameOver = true;
             //Destroy(enemyController.gameObject);
             //Destroy(enemyController.enemyLevelText.gameObject);
             enemyController.enemyAnimator.SetBool("Death_b", true);
             enemyController.enemyAnimator.SetInteger("DeathType_int", 1);
             Invoke("StopAttackAnimation", attackDelay);
         }
-        else // Karakterin leveli enemynin levelinden düşük ise 
+        else
         {
-            //playerin ölme animasyonu
             enemyController.enemyAnimator.SetBool("isEnemyAttacking", true);
+            enemyController.enemyGameOver = false;
             Invoke("RestartGameWhenEnemyAttackStop", 2);
         }
     }
@@ -82,6 +83,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
     void StopAttackAnimation()
     {
         playerAnimator.SetBool("isAttacking", false);
+
     }
 
     void RestartGame()
