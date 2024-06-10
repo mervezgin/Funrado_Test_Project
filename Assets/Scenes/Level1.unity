@@ -1583,11 +1583,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6506811414057090111, guid: 7c996ecdd411c48fb9c35bb39f166d1a, type: 3}
   m_PrefabInstance: {fileID: 321569273}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &343504449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1971817902423924633, guid: 766387603bc1344ad8380a61144b2b8e, type: 3}
-  m_PrefabInstance: {fileID: 1923254634}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &366800285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2897,6 +2892,10 @@ PrefabInstance:
       value: CastleShortWallWithBricks (7)
       objectReference: {fileID: 0}
     - target: {fileID: 8412628295678112917, guid: 85adfb57ead86b24c849da224f9429db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8334325
+      objectReference: {fileID: 0}
+    - target: {fileID: 8412628295678112917, guid: 85adfb57ead86b24c849da224f9429db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.5
       objectReference: {fileID: 0}
@@ -2906,7 +2905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8412628295678112917, guid: 85adfb57ead86b24c849da224f9429db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.45
+      value: -11.9816
       objectReference: {fileID: 0}
     - target: {fileID: 8412628295678112917, guid: 85adfb57ead86b24c849da224f9429db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3318,11 +3317,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 493882, guid: 43ac926c2709a4b4e9868e88f7f97a61, type: 3}
   m_PrefabInstance: {fileID: 914174105}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &945794532 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1971817902423924633, guid: 766387603bc1344ad8380a61144b2b8e, type: 3}
-  m_PrefabInstance: {fileID: 1349737558}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3475,11 +3469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8333293281810408072, guid: c1e75bf94629064488d3f09baad562bf, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.59
+      value: 2.554335
       objectReference: {fileID: 0}
     - target: {fileID: 8333293281810408072, guid: c1e75bf94629064488d3f09baad562bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 3.0178
       objectReference: {fileID: 0}
     - target: {fileID: 8333293281810408072, guid: c1e75bf94629064488d3f09baad562bf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3763,6 +3757,10 @@ PrefabInstance:
       value: CastleLongWall
       objectReference: {fileID: 0}
     - target: {fileID: 7937575510399808443, guid: e580e100082e12f45bdf3b20524a3e95, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0853316
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937575510399808443, guid: e580e100082e12f45bdf3b20524a3e95, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.5
       objectReference: {fileID: 0}
@@ -3772,7 +3770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7937575510399808443, guid: e580e100082e12f45bdf3b20524a3e95, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.06
+      value: -24.5747
       objectReference: {fileID: 0}
     - target: {fileID: 7937575510399808443, guid: e580e100082e12f45bdf3b20524a3e95, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4263,7 +4261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3244302810374548874, guid: 766387603bc1344ad8380a61144b2b8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.62
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: 3244302810374548874, guid: 766387603bc1344ad8380a61144b2b8e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5856,14 +5854,6 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 633080478}
-    - target: {fileID: 467076834967864721, guid: e292cbddc28af47478ad47286dd6adb7, type: 3}
-      propertyPath: barrels.Array.data[0]
-      value: 
-      objectReference: {fileID: 945794532}
-    - target: {fileID: 467076834967864721, guid: e292cbddc28af47478ad47286dd6adb7, type: 3}
-      propertyPath: barrels.Array.data[1]
-      value: 
-      objectReference: {fileID: 343504449}
     - target: {fileID: 2427644375927338307, guid: e292cbddc28af47478ad47286dd6adb7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.2299805

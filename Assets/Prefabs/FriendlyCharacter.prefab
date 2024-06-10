@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3162df073f3484d709db9b9c5f43051f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
   rotationSpeed: 100
 --- !u!114 &24072849956631017
 MonoBehaviour:
@@ -1316,9 +1316,6 @@ MonoBehaviour:
   level: 1
   levelText: {fileID: 0}
   playerPrefab: {fileID: 7705117966581496777}
-  barrels:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &7085444807946192966
 MonoBehaviour:
   m_ObjectHideFlags: 0
