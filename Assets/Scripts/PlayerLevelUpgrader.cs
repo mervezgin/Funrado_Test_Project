@@ -8,41 +8,49 @@ public class PlayerLevelUpgrader : MonoBehaviour
 {
     Animator animator; // Karakterin animasyonlarını kontrol etmek için 
     Vector3 respawnPosition;
-    public int level = 1; // Karakterin başlangıç leveli = 1.
-    [SerializeField] Text levelText; // Karakterin levelinin yazacağı UI Text objesi.
+    public int level = 1;
+    [SerializeField] HeadLevelShow headLevelShow;
     [SerializeField] GameObject playerPrefab;
 
     float restartGameDelay = 2f;
     float attackDelay = 1f;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         UpdateLevelText();
     }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Upgrader")) //Karakter Upgrader tagi olan nesneyle karşılaşınca
+        if (other.gameObject.CompareTag("Upgrader"))
         {
-            Destroy(other.gameObject); //Upgrader gameObjecti yok edilir.
-            IncreaseLevel(); //Levelin arttırıldığı metot çağırılır.
+            Destroy(other.gameObject);
+            IncreaseLevel();
         }
         else if (other.gameObject.CompareTag("Barrel"))
         {
             gameObject.SetActive(false);
+            headLevelShow.HideLevelText(); // Seviye metnini gizle
             respawnPosition = other.transform.position;
             Invoke("RespawnPlayer", 2f);
         }
     }
+
     void IncreaseLevel()
     {
         level++; // level değişkeni bir kere arttırılır.
+        Debug.Log("ARTMADI LEVEL");
         UpdateLevelText(); // Bu metot çağırılır.
     }
-    void UpdateLevelText()
+
+    public void UpdateLevelText()
     {
-        if (levelText != null) // eğer inspectorda levelText bileşeni boş değilse
+        if (headLevelShow != null) // HeadLevelShow betiği varsa
         {
-            levelText.text = "LVL. " + level;
+            Debug.Log("buraya giriyor mu bu ");
+            headLevelShow.SetLevel(level); // HeadLevelShow betiğine seviyeyi ayarla
+            Debug.Log(level);
         }
     }
 
@@ -54,21 +62,22 @@ public class PlayerLevelUpgrader : MonoBehaviour
             PlayerAttack(enemy);
         }
     }
+
     void PlayerAttack(EnemyController enemyController)
     {
         if (level > enemyController.enemyLevel) // Karakterin leveli enemynin levelinden yüksek ise 
         {
-            animator.SetBool("isAttacking", true); // Karakterin attack animasyonunu devreye geçir 
-            Destroy(enemyController.gameObject); //enemy yi yok et 
-            Destroy(enemyController.enemyLevelText.gameObject); // enemynin level göstergesini yok et.
+            animator.SetBool("isAttacking", true);
+            Destroy(enemyController.gameObject);
+            Destroy(enemyController.enemyLevelText.gameObject);
             Invoke("StopAttackAnimation", attackDelay);
-            //enemy ölme animasyonu
+
         }
         else // Karakterin leveli enemynin levelinden düşük ise 
         {
             //playerin ölme animasyonu
             enemyController.enemyAnimator.SetBool("isEnemyAttacking", true);
-            Invoke("RestartGame", restartGameDelay); //oyun yeni baştan başlar 
+            Invoke("RestartGame", restartGameDelay);
         }
     }
 
@@ -76,6 +85,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
     {
         animator.SetBool("isAttacking", false);
     }
+
     void RestartGame()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -87,8 +97,9 @@ public class PlayerLevelUpgrader : MonoBehaviour
         if (playerPrefab != null)
         {
             respawnPosition.z -= 2.0f;
-            transform.position = respawnPosition; // Player objesini başlangıç konumuna taşı
-            gameObject.SetActive(true); // Player objesini yeniden etkinleştir
+            transform.position = respawnPosition;
+            gameObject.SetActive(true);
+            headLevelShow.ShowLevelText();
         }
     }
 }

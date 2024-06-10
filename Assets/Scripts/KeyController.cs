@@ -8,8 +8,8 @@ public class KeyController : MonoBehaviour
     public bool hasRedKey = false; //Karakterin RedKey'e sahip olup olmadığını belirten değişken
     public bool hasBlueKey = false; //Karakterin BlueKey'e sahip olup olmadığını belirten değişken
 
-    [SerializeField] Image redKeyImage;
-    [SerializeField] Image blueKeyImage;
+    public Image redKeyImage;
+    public Image blueKeyImage;
 
     void Start()
     {

@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     Joystick joystick;
 
     [SerializeField] float moveSpeed = default;
-    [SerializeField] float rotationSpeed = default;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +39,6 @@ public class PlayerController : MonoBehaviour
         {
             angle += 360;
         }
-
         if (angle - playerRotation[1] != 0)
         {
             if (moveDirection != 0 && rotateDirection != 0)
@@ -56,7 +54,6 @@ public class PlayerController : MonoBehaviour
                 playerRb.MovePosition(playerRb.position + playerMove);
             }
         }
-
         bool isRunning = moveDirection != 0 || rotateDirection != 0;
         animator.SetBool("isRunning", isRunning);
     }

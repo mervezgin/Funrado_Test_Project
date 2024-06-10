@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
         initialColliderSize = enemyBoxC.size;
 
         UpdateLevelText(); //enemy leveli için texti yazdırır.
-        Invoke("EnemyPatrol", 1f);
+        Invoke("EnemyCircle", 1f);
     }
 
     void LateUpdate()
@@ -46,8 +46,14 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    void EnemyCircle()
+    {
+        enemyAnimator.SetBool("isCircle", true);
+    }
+
     void EnemyPatrol()
     {
-        enemyAnimator.SetBool("isPatrol", true);
+        //enemy belirli bir range içinde yürüyebilir 
+        //level2 da yapsın bunu 
     }
 }

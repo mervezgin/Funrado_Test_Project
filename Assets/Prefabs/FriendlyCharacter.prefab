@@ -1272,7 +1272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  rotationSpeed: 100
 --- !u!114 &24072849956631017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,8 +1286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasRedKey: 0
   hasBlueKey: 0
-  redKeyImage: {fileID: 0}
-  blueKeyImage: {fileID: 0}
+  redKeyImage: {fileID: 91207334826800425, guid: 8ebc28a7a9c1747f0a00bc13aa83706a, type: 3}
+  blueKeyImage: {fileID: 7441696377111375438, guid: d9307a4b000c5486ea1505992d13e477, type: 3}
 --- !u!114 &2658184820344039498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,6 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b65e70fc82c4d4696558ccc3f5b258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameLevelText: {fileID: 0}
 --- !u!114 &467076834967864721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  levelText: {fileID: 0}
+  levelText: {fileID: 7794933305363546680, guid: 1496ce8a15e0543ebb97df6740b55aff, type: 3}
   playerPrefab: {fileID: 7705117966581496777}
 --- !u!114 &7085444807946192966
 MonoBehaviour:
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterTransform: {fileID: 2427644375927338307}
   offset: {x: -0.5, y: 2.5, z: 0}
-  levelText: {fileID: 0}
+  levelText: {fileID: 7794933305363546680, guid: 1496ce8a15e0543ebb97df6740b55aff, type: 3}
 --- !u!1 &8038831507796624681
 GameObject:
   m_ObjectHideFlags: 0

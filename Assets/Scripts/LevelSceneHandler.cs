@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSceneHandler : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class LevelSceneHandler : MonoBehaviour
     bool isTransitioning = false; // Level geçişinin olup olmadığını kontrol eder 
     bool collisionDisabled = false; // Çarpışma olup olmadığını kontrol eder
 
+    [SerializeField] Text gameLevelText;
+
+    void Update()
+    {
+        UpdateGameLevelText();
+    }
     void OnCollisionEnter(Collision collision) // bir nesne başka bir nesneye çarptığında çalışan metot.
     {
         if (isTransitioning || collisionDisabled) { return; } // Eğer geçiş devam ediyorsa ve çarpışmalar devre dışıysa OnCollisionEnter metodu sonlanır.
@@ -23,7 +30,6 @@ public class LevelSceneHandler : MonoBehaviour
                 Debug.Log("THANK YOU NEXT");
                 break;
             default:
-                //StartDyingSequence();
                 break;
         }
     }
@@ -48,7 +54,6 @@ public class LevelSceneHandler : MonoBehaviour
     void StartSuccessSequence()
     {
         isTransitioning = true;
-        GetComponent<PlayerController>().enabled = false; //PlayerController devre dışı bırakılır. 
         Invoke("LoadNextLevel", levelLoadDelay);
     }
 
@@ -58,6 +63,10 @@ public class LevelSceneHandler : MonoBehaviour
         GetComponent<PlayerController>().enabled = false;
         Invoke("ReloadLevel", levelLoadDelay);
     }
-
+    void UpdateGameLevelText()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        gameLevelText.text = "LEVEL " + (currentSceneIndex + 1);
+    }
 
 }

@@ -13,6 +13,7 @@ TagManager:
   - RedDoor
   - BlueDoor
   - Barrel
+  - Canvas
   layers:
   - Default
   - TransparentFX

@@ -1287,10 +1287,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6481275097411100918}
   - component: {fileID: 2292089230605132593}
-  - component: {fileID: 864564652920236206}
   - component: {fileID: 2363905467437085530}
-  - component: {fileID: 6868140338375841618}
-  - component: {fileID: 8805830643923808212}
+  - component: {fileID: 864564652920236206}
+  - component: {fileID: 8308727696841841}
+  - component: {fileID: 4616200325736742429}
   m_Layer: 0
   m_Name: EnemyCharacter
   m_TagString: Enemy
@@ -1337,27 +1337,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &864564652920236206
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9041057398326010721}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.6702263, z: 0.93799704}
-  m_Center: {x: 7.590569e-17, y: 0.8228856, z: 0.022599882}
 --- !u!54 &2363905467437085530
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1385,7 +1364,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6868140338375841618
+--- !u!65 &864564652920236206
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9041057398326010721}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.6702263, z: 0.93799704}
+  m_Center: {x: 7.590569e-17, y: 0.8228856, z: 0.022599882}
+--- !u!114 &8308727696841841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1399,8 +1399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterTransform: {fileID: 6481275097411100918}
   offset: {x: -0.5, y: 2.5, z: 0}
-  levelText: {fileID: 0}
---- !u!114 &8805830643923808212
+  levelText: {fileID: 5931409155786564148, guid: d19618d1c0230463c8ded464817861c6, type: 3}
+--- !u!114 &4616200325736742429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1413,8 +1413,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnimator: {fileID: 2292089230605132593}
-  enemyLevel: 1
-  enemyLevelText: {fileID: 0}
+  enemyLevel: 0
+  enemyLevelText: {fileID: 5931409155786564148, guid: d19618d1c0230463c8ded464817861c6, type: 3}
 --- !u!1 &9066051649017822937
 GameObject:
   m_ObjectHideFlags: 0
