@@ -9,7 +9,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
     PlayerController playerController;
     Animator playerAnimator;
     Vector3 respawnPosition;
-    public int level = 1;
+    public static int playerLevel = 1;
     [SerializeField] HeadLevelShow headLevelShow;
     [SerializeField] GameObject playerPrefab;
 
@@ -41,7 +41,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
 
     void IncreaseLevel()
     {
-        level++;
+        playerLevel++;
         UpdateLevelText();
     }
 
@@ -49,7 +49,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
     {
         if (headLevelShow != null)
         {
-            headLevelShow.SetLevel(level);
+            headLevelShow.SetLevel(playerLevel);
         }
     }
 
@@ -64,7 +64,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
 
     void PlayerAttack(EnemyController enemyController)
     {
-        if (level > enemyController.enemyLevel)
+        if (playerLevel > enemyController.enemyLevel)
         {
             playerAnimator.SetBool("isAttacking", true);
             enemyController.enemyGameOver = true;
@@ -77,9 +77,9 @@ public class PlayerLevelUpgrader : MonoBehaviour
         else
         {
             playerController.playerGameOver = true;
+            enemyController.enemyAnimator.SetBool("isEnemyPatrolling", false);
             enemyController.enemyAnimator.SetBool("isEnemyAttacking", true);
             playerAnimator.SetBool("isRunning", false);
-            enemyController.enemyGameOver = false;
             Invoke("RestartGameWhenEnemyAttackStop", 2);
         }
     }
@@ -92,6 +92,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
 
     void RestartGame()
     {
+        playerLevel = 1;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LevelSceneHandler : MonoBehaviour
 {
+    PlayerLevelUpgrader playerLevelUpgrader;
     float levelLoadDelay = 2f;
     bool isTransitioning = false;
     bool collisionDisabled = false;
@@ -38,11 +39,10 @@ public class LevelSceneHandler : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
-        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        if (nextSceneIndex != SceneManager.sceneCountInBuildSettings)
         {
-            nextSceneIndex = 0;
+            SceneManager.LoadScene(nextSceneIndex);
         }
-        SceneManager.LoadScene(nextSceneIndex);
     }
 
     void StartSuccessSequence()
