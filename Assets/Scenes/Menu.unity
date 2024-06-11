@@ -811,50 +811,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197905889}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &203059045
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 203059047}
-  - component: {fileID: 203059046}
-  m_Layer: 0
-  m_Name: MusicControl
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &203059046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 203059045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51151d1afd25d4b4d949ab695b981c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &203059047
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 203059045}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &295840458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1250,7 +1206,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1722700394}
         m_TargetAssemblyTypeName: MenuControl, Assembly-CSharp
-        m_MethodName: StartTheGame
+        m_MethodName: Music
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3686,6 +3642,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be4e6201f94f471db4e1ce341edb475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicIcons:
+  - {fileID: 21300000, guid: d159d7d97c5064ac3858915cad9b6d95, type: 3}
+  - {fileID: 21300000, guid: 26d164e90eff24c649a6c0abce4bdef5, type: 3}
+  musicButton: {fileID: 442047457}
 --- !u!4 &1722700395
 Transform:
   m_ObjectHideFlags: 0
@@ -4341,4 +4301,3 @@ SceneRoots:
   - {fileID: 12484215}
   - {fileID: 528771041}
   - {fileID: 1722700395}
-  - {fileID: 203059047}

@@ -111,5 +111,8 @@ public class PlayerLevelUpgrader : MonoBehaviour
             headLevelShow.ShowLevelText();
         }
     }
-
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
