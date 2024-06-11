@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLevelUpgrader : MonoBehaviour
 {
+    PlayerController playerController;
     Animator playerAnimator;
     Vector3 respawnPosition;
     public int level = 1;
@@ -18,6 +19,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
+        playerController = GetComponent<PlayerController>();
         UpdateLevelText();
     }
 
@@ -74,7 +76,9 @@ public class PlayerLevelUpgrader : MonoBehaviour
         }
         else
         {
+            playerController.playerGameOver = true;
             enemyController.enemyAnimator.SetBool("isEnemyAttacking", true);
+            playerAnimator.SetBool("isRunning", false);
             enemyController.enemyGameOver = false;
             Invoke("RestartGameWhenEnemyAttackStop", 2);
         }

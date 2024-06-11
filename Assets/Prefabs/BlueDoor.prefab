@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae89d4699244a4a159fe7344d1aa18c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: -0.2
+  amplitude: 0.2
   frequency: 0.2
   isOscillating: 0
 --- !u!114 &2920519048538469358
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae89d4699244a4a159fe7344d1aa18c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.2
+  amplitude: -0.2
   frequency: 0.2
   isOscillating: 0
 --- !u!114 &6339199601396487218

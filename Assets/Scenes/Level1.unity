@@ -2834,7 +2834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1239706660930407510, guid: c8e3b5303f1f04e8c97aa99c5306ca7d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.56
+      value: -16.49
       objectReference: {fileID: 0}
     - target: {fileID: 1239706660930407510, guid: c8e3b5303f1f04e8c97aa99c5306ca7d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2962,7 +2962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8347034249411581016, guid: c0dd3a57dfdea48559784c813c5588e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.86
+      value: 4.57
       objectReference: {fileID: 0}
     - target: {fileID: 8347034249411581016, guid: c0dd3a57dfdea48559784c813c5588e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3396,7 +3396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8333293281810408072, guid: c1e75bf94629064488d3f09baad562bf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.06
+      value: -27.96
       objectReference: {fileID: 0}
     - target: {fileID: 8333293281810408072, guid: c1e75bf94629064488d3f09baad562bf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3808,7 +3808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8333293281810408072, guid: c1e75bf94629064488d3f09baad562bf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.91
+      value: -10.84
       objectReference: {fileID: 0}
     - target: {fileID: 8333293281810408072, guid: c1e75bf94629064488d3f09baad562bf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4246,7 +4246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 428530, guid: 84a240cf1c5ef5f4d8ff048828a60d97, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.237183
+      value: -33.93
       objectReference: {fileID: 0}
     - target: {fileID: 428530, guid: 84a240cf1c5ef5f4d8ff048828a60d97, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5422,7 +5422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -6.700012, y: 0.3109}
+  m_AnchoredPosition: {x: -6.699951, y: 0.3109}
   m_SizeDelta: {x: 48.4103, y: 113.2022}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1905892036

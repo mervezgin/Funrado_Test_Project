@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Joystick joystick;
 
+    public bool playerGameOver;
+
     [SerializeField] float moveSpeed = default;
 
     // Start is called before the first frame update
@@ -28,33 +30,36 @@ public class PlayerController : MonoBehaviour
 
     public void JoystickControl()
     {
-        float moveDirection = joystick.Vertical;
-        float rotateDirection = joystick.Horizontal;
-        float angle = Mathf.Atan2(rotateDirection, moveDirection) * Mathf.Rad2Deg;
+        if (!playerGameOver)
+        {
+            float moveDirection = joystick.Vertical;
+            float rotateDirection = joystick.Horizontal;
+            float angle = Mathf.Atan2(rotateDirection, moveDirection) * Mathf.Rad2Deg;
 
-        Vector3 forwardDirection = transform.forward;
-        Vector3 playerRotation = transform.eulerAngles;
+            Vector3 forwardDirection = transform.forward;
+            Vector3 playerRotation = transform.eulerAngles;
 
-        if (angle < 0)
-        {
-            angle += 360;
-        }
-        if (angle - playerRotation[1] != 0)
-        {
-            if (moveDirection != 0 && rotateDirection != 0)
+            if (angle < 0)
             {
-                transform.Rotate(0, angle - playerRotation[1], 0);
+                angle += 360;
             }
-        }
-        else
-        {
-            if (moveDirection != 0 && rotateDirection != 0)
+            if (angle - playerRotation[1] != 0)
             {
-                Vector3 playerMove = forwardDirection * moveSpeed * Time.deltaTime;
-                playerRb.MovePosition(playerRb.position + playerMove);
+                if (moveDirection != 0 && rotateDirection != 0)
+                {
+                    transform.Rotate(0, angle - playerRotation[1], 0);
+                }
             }
+            else
+            {
+                if (moveDirection != 0 && rotateDirection != 0)
+                {
+                    Vector3 playerMove = forwardDirection * moveSpeed * Time.deltaTime;
+                    playerRb.MovePosition(playerRb.position + playerMove);
+                }
+            }
+            bool isRunning = moveDirection != 0 || rotateDirection != 0;
+            animator.SetBool("isRunning", isRunning);
         }
-        bool isRunning = moveDirection != 0 || rotateDirection != 0;
-        animator.SetBool("isRunning", isRunning);
     }
 }
