@@ -24,11 +24,9 @@ public class LevelSceneHandler : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "BeginHere":
-                Debug.Log("READY TO PLAY");
                 break;
             case "NextLevel":
                 StartSuccessSequence();
-                Debug.Log("THANK YOU NEXT");
                 break;
             default:
                 break;
@@ -50,11 +48,10 @@ public class LevelSceneHandler : MonoBehaviour
         isTransitioning = true;
         Invoke("LoadNextLevel", levelLoadDelay);
     }
-
     void UpdateGameLevelText()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        gameLevelText.text = "LEVEL " + (currentSceneIndex + 1);
+        gameLevelText.text = "LEVEL " + (currentSceneIndex);
     }
 
 }

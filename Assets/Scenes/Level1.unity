@@ -5383,6 +5383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelHeadText
       objectReference: {fileID: 0}
+    - target: {fileID: 8762169784574050665, guid: 1496ce8a15e0543ebb97df6740b55aff, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6858,7 +6862,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d5bf96c5aa2e34d9a86ceb1a13da1ad3, type: 3}
     m_FontSize: 48
     m_FontStyle: 1
     m_BestFit: 0

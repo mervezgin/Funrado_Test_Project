@@ -14,7 +14,7 @@ public class PlayerLevelUpgrader : MonoBehaviour
     [SerializeField] GameObject playerPrefab;
 
     float restartGameDelay = 2f;
-    float attackDelay = 1f;
+    float attackDelay = 2f;
 
     void Start()
     {
@@ -68,8 +68,6 @@ public class PlayerLevelUpgrader : MonoBehaviour
         {
             playerAnimator.SetBool("isAttacking", true);
             enemyController.enemyGameOver = true;
-            //Destroy(enemyController.gameObject);
-            //Destroy(enemyController.enemyLevelText.gameObject);
             enemyController.enemyAnimator.SetBool("Death_b", true);
             enemyController.enemyAnimator.SetInteger("DeathType_int", 1);
             Invoke("StopAttackAnimation", attackDelay);
@@ -87,7 +85,6 @@ public class PlayerLevelUpgrader : MonoBehaviour
     void StopAttackAnimation()
     {
         playerAnimator.SetBool("isAttacking", false);
-
     }
 
     void RestartGame()
